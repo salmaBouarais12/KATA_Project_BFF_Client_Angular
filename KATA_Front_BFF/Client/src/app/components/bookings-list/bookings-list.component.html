@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<div class="container">
+  <section class="main">
+    <section class="users">
+      <div class="users-list">
+        <h1>Bookings </h1> 
+        <p class="container">
+          <a class="add-customer-button" title="Add New Customer" data-toggle="tooltip" (click)="addBooking()">Add New Booking</a>
+         </p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Room ID</th>
+              <th>Customer ID</th>
+              <th>Booking Date</th>
+              <th>Start Slot</th>
+              <th>End Slot</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody >
+            <tr *ngFor="let booking of bookings" class="active">
+              <td>{{booking.roomId}}</td>
+              <td>{{booking.personId}}</td>
+              <td>{{booking.bookingDate | date: 'yyyy-MM-dd'}}</td>
+              <td>{{booking.startSlot}}</td>
+              <td>{{booking.endSlot}}</td>
+              <td>
+                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons" (click)="deleteBooking(booking)">&#xE872;</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </section>

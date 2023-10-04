@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<div class="container">
+  <section class="main">
+    <section class="users">
+      <div class="users-list">
+        <h1>Customers List</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody >
+            <tr *ngFor="let user of users" class="active">
+              <td>{{user.id}}</td>
+              <td>{{user.firstName}}</td>
+              <td>{{user.lastName}}</td>
+              <td>
+                <a class="edit" title="Edit" data-toggle="tooltip" (click)="editUser(user)"><i class="material-icons" >&#xE254;</i></a>
+                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </section>

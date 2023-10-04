@@ -1,0 +1,30 @@
+/* confirm-dialog.component.css */
+
+/* Center the dialog content vertically and horizontally */
+.mat-dialog-content {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Add some padding to the dialog actions */
+  .mat-dialog-actions {
+    padding: 20px;
+  }
+  
+  /* Style the "No" button */
+  button.mat-button {
+    margin-right: 10px; /* Add some spacing between buttons */
+  }
+  
+  /* Style the "Yes" button with a red color */
+  button.mat-button.warn {
+    background-color: #ff5722; /* Red color */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+  }
+  
+  /* Hover effect for the "Yes" button */
+  button.mat-button.warn:hover {
+    background-color: #f44336; /* Darker red color on hover */
+  }
+  

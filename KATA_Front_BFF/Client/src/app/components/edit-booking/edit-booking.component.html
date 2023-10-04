@@ -1,0 +1,14 @@
+<form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+    <div class="box">
+    <h1>Edit Information Of Booking</h1>
+    <fieldset>
+      <input id="roomId" name="roomId" formControlName="roomId" placeholder="roomId" type="number" autofocus="" required=""/>
+      <input id="personId" name="personId" formControlName="personId" placeholder="personId" type="number" autofocus="" required=""/>
+      <input id="bookingDate" name="bookingDate" formControlName="bookingDate" type="date" type="date" placeholder="bookingDate" autofocus="" required=""/>
+      <input id="startSlot" name="startSlot" formControlName="startSlot" placeholder="startSlot" type="number" autofocus="" required=""/>
+      <input id="endSlot" name="endSlot" formControlName="endSlot" placeholder="endSlot" type="number" autofocus="" required=""/>
+      <div class="btn"><button class="btnSubmit" type="submit" [disabled]="bookingForm.invalid || !bookingForm.dirty">Submit</button>
+     <a><button id="btnBack" (click)="backHome()">Back</button></a></div>
+    </fieldset>
+    </div>
+</form>

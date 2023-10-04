@@ -1,0 +1,20 @@
+<form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+    <div class="box">
+    <h1>Add Information Of Booking</h1>
+    <fieldset>
+      <select id="roomId" name="roomId" formControlName="roomId" required>
+        <option value="" disabled selected>Select a room</option>
+          <option *ngFor="let room of rooms" [ngValue]="room.id">{{ room.roomName }}</option>
+      </select>
+    <select id="personId" name="personId" formControlName="personId" required>
+      <option value="" disabled selected>Select a Customer</option>
+      <option *ngFor="let user of users" [value]="user.id">{{ user.lastName }}</option>
+    </select>     
+      <input id="bookingDate" name="bookingDate" formControlName="bookingDate" type="date" type="date" placeholder="bookingDate" autofocus="" required=""/>
+      <input id="startSlot" name="startSlot" formControlName="startSlot" placeholder="startSlot" type="number" autofocus="" required=""/>
+      <input id="endSlot" name="endSlot" formControlName="endSlot" placeholder="endSlot" type="number" autofocus="" required=""/>
+      <div class="btn"><button class="btnSubmit" type="submit">Submit</button>
+     <a><button id="btnBack" (click)="backHome()">Back</button></a></div>
+    </fieldset>
+    </div>
+</form>

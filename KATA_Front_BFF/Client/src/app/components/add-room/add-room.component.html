@@ -1,0 +1,10 @@
+<form [formGroup]="roomForm" (ngSubmit)="onSubmit()">
+    <div class="box">
+    <h1>Add New Room</h1>
+    <fieldset>
+      <input id="roomName" name="roomName" formControlName="roomName" placeholder="RoomName" autofocus="" required=""/>
+      <div class="btn"><button class="btnSubmit" type="submit" [disabled]="roomForm.invalid || !roomForm.dirty">Submit</button>
+     <a (click)="backHome()"><button id="btnBack">Back</button></a></div>
+    </fieldset>
+    </div>
+</form>

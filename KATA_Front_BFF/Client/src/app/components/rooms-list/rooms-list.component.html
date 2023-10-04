@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<div class="container">
+  <section class="main">
+    <section class="users">
+      <div class="users-list">
+        <h1>Rooms </h1> 
+        <p class="container">
+          <a class="add-customer-button" title="Add New Room" data-toggle="tooltip" (click)="addRoom()">Add New Room</a>
+         </p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Room Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody >
+            <tr *ngFor="let room of rooms" class="active">
+              <td>{{room.id}}</td>
+              <td>{{room.roomName}}</td>
+              <td>
+                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons" (click)="editRoom(room)">&#xE254;</i></a>
+                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons" (click)="deleteRoom(room)">&#xE872;</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </section>

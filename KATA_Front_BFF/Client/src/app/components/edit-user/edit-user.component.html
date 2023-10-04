@@ -1,0 +1,11 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+<div class="box">
+<h1>Edit Information Of Cusomer</h1>
+<fieldset>
+  <input id="firstName" name="firstName" formControlName="firstName" placeholder="FirstName" autofocus="" required=""/>
+  <input id="firstName" name="lastName" formControlName="lastName" placeholder="LastName" autofocus="" required=""/>
+  <div class="btn"><button class="btnSubmit" type="submit" [disabled]="userForm.invalid || !userForm.dirty">Submit</button>
+ <a href="#"><button id="btnBack">Back</button></a></div>
+</fieldset>
+</div>
+</form>
