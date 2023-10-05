@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { configEndpointsApi } from '../api/config-endpoints-api';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RoomService } from '../services/room.service';
 import { Room } from '../domain/room';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -12,20 +12,10 @@ import { Room } from '../domain/room';
 })
 
 export class HeaderComponent {
-  rooms: Room[] = [];
-  constructor(private http: HttpClient,private roomService: RoomService) { }
 
-  loadRooms() {
-    this.roomService.getRooms()
-      .subscribe(rooms => {
-        this.rooms = rooms;
-      });
-  }
+  constructor(private http: HttpClient,private authenticationService: AuthenticationService) { }
 
   getUser() {
-    console.log("test");
-    return this.http.get(configEndpointsApi.endpoints.identityProvider.read).subscribe((response:any)=>{
-      console.log(response.data[5].value)
-    });
+    this.authenticationService.getUsers();
   }
 }

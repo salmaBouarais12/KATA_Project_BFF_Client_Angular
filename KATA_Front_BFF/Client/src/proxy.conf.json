@@ -1,11 +1,25 @@
 {
 
-    "/*": {
-  
-      "target": "https://localhost:7082",
-  
-      "secure": false
-  
-    }
-  
+  "/bff/*": {
+
+    "target": "https://localhost:7082",
+    "secure": false,
+    "logLevel": "debug"
+
+  },
+  "/signin-oidc": {
+
+    "target": "https://localhost:7082",
+
+    "secure": false
+
+  },
+  "/api/*": {
+
+    "target": "https://localhost:7082",
+
+    "secure": false
+
   }
+
+}
