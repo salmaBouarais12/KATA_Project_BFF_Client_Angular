@@ -8,7 +8,7 @@ builder.Services
       .AddAuthorization()
       .AddSpaStaticFiles(configuration =>
       {
-          configuration.RootPath = "KATA_project_front/dist";
+          configuration.RootPath = "Client/dist";
       });
 
 builder.Services

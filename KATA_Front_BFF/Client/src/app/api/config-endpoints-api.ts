@@ -14,7 +14,7 @@ export const configEndpointsApi = {
         readBookingForRoom : "http://localhost:5262/api/bookings/room/"
       },
       identityProvider:{
-        read: "http://localhost:4200/bff/user"
+        read: "https://localhost:4200/bff/user"
       }
     }
 }

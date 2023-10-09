@@ -1,8 +1,4 @@
-import { Component } from '@angular/core';
-import { configEndpointsApi } from '../api/config-endpoints-api';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { RoomService } from '../services/room.service';
-import { Room } from '../domain/room';
+import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -11,9 +7,16 @@ import { AuthenticationService } from '../services/authentication.service';
   styleUrls: ['./header.component.css']
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  isLoggedIn: boolean = true;
+  constructor(private authenticationService: AuthenticationService) { }
 
-  constructor(private http: HttpClient,private authenticationService: AuthenticationService) { }
+  ngOnInit(): void {
+    this.authenticationService.checkLoginStatus().subscribe((result) => {
+      this.isLoggedIn = result;
+      console.log(result);
+    });
+  }
 
   getUser() {
     this.authenticationService.getUsers();
