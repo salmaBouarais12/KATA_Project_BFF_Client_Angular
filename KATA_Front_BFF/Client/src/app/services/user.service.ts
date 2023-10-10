@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { User } from '../domain/user';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { configEndpointsApi } from '../api/config-endpoints-api';
 import { UsersResponse } from './dtos/UsersResponse';
 import { UserResponse } from './dtos/UserResponse';
@@ -14,7 +14,11 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<UsersResponse>(configEndpointsApi.endpoints.users.read)
+    const headers = new HttpHeaders({
+      "X-CSRF": "1"
+    });
+    const options = { headers: headers };
+    return this.http.get<UsersResponse>(configEndpointsApi.endpoints.users.read,options)
       .pipe(map(this.mapUsersResponseToUsers));
   }
 

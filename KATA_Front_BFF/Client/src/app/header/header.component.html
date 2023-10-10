@@ -6,6 +6,7 @@
       <a routerLink="rooms" routerLinkActive="active">Rooms</a>
       <a routerLink="bookings" routerLinkActive="active">Bookings</a>
       <a (click)="getUser()">User</a>
+      <a (click)="navigateToLogout()">Logout</a>
   </nav>
   <a *ngIf="!isLoggedIn" href="https://localhost:4200/bff/login">Login</a>
 </header>

@@ -19,7 +19,6 @@ export class AuthenticationService {
     return this.http.get(configEndpointsApi.endpoints.identityProvider.read, options).pipe(
       map((response: any) => {
         return !!response[5].value;
-        
       }),
       catchError((error) => {
         console.error('Error checking login status', error);
@@ -36,5 +35,26 @@ export class AuthenticationService {
           return this.http.get(configEndpointsApi.endpoints.identityProvider.read,options).subscribe((response:any)=>{
             console.log(response[5].value);
     });
+  }
+
+  getLogoutSRI():  Observable<string> {
+    const headers = new HttpHeaders({
+          "X-CSRF": "1"
+        });
+        const options = { headers: headers };
+        return this.http.get(configEndpointsApi.endpoints.identityProvider.read, options)
+        .pipe(map((response: any) => {
+          return response[8].value;
+        }));
+  }
+
+  async logout(): Promise<string> {
+    try {
+      const result = await this.getLogoutSRI().toPromise();
+      return configEndpointsApi.endpoints.identityProvider.logout + result;
+    } catch (error) {
+      console.error(error);
+      return ''; 
+    }
   }
 }

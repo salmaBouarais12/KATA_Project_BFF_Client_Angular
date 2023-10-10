@@ -1,7 +1,7 @@
 export const configEndpointsApi = {
     endpoints: {
       users: {
-        read: "http://localhost:5262/api/persons",
+        read: "https://localhost:4200/api/persons",
         edit:"http://localhost:5262/api/persons/"
       },
       rooms:{
@@ -14,7 +14,8 @@ export const configEndpointsApi = {
         readBookingForRoom : "http://localhost:5262/api/bookings/room/"
       },
       identityProvider:{
-        read: "https://localhost:4200/bff/user"
+        read: "https://localhost:4200/bff/user",
+        logout :"https://localhost:4200"
       }
     }
 }
