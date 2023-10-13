@@ -49,5 +49,9 @@ app.MapBffManagementEndpoints();
 
 app.MapRemoteBffApiEndpoint("/api/persons", $"http://localhost:5262/api/persons")
             .RequireAccessToken(TokenType.User);
+app.MapRemoteBffApiEndpoint("/api/rooms", $"http://localhost:5262/api/rooms")
+            .RequireAccessToken(TokenType.User);
+app.MapRemoteBffApiEndpoint("/api/bookings", $"http://localhost:5262/api/bookings")
+            .RequireAccessToken(TokenType.User);
 app.MapFallbackToFile("index.html");
 app.Run();
