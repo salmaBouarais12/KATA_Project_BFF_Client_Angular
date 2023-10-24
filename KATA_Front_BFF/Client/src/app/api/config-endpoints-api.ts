@@ -1,22 +1,23 @@
+import { environment } from "src/environments/environment";
+
 export const configEndpointsApi = {
     endpoints: {
       users: {
-        read: "https://localhost:4200/api/persons",
-        edit:"https://localhost:4200/api/persons/"
+        read: `${environment.bffUrl}/api/persons`,
+        edit:`${environment.bffUrl}/api/persons/`
       },
       rooms:{
-        read: "https://localhost:4200/api/rooms",
-        edit: "https://localhost:4200/api/rooms/"
+        read: `${environment.bffUrl}/api/rooms`,
+        edit: `${environment.bffUrl}/api/rooms/`
       },
       bookings:{
-        read: "https://localhost:4200/api/bookings",
-        edit: "https://localhost:4200/api/bookings/",
-        readBookingForRoom : "https://localhost:4200/api/bookings/room/"
+        read: `${environment.bffUrl}/api/bookings`,
+        edit:`${environment.bffUrl}/api/bookings/`,
+        readBookingForRoom : `${environment.bffUrl}/api/bookings/room/`
       },
       identityProvider:{
-        read: "https://localhost:4200/bff/user",
-        logout :"https://localhost:4200"
+        read: `${environment.bffUrl}/bff/user`,
+        logout :`${environment.bffUrl}`
       }
     }
 }
-  

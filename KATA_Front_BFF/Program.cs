@@ -26,7 +26,7 @@ builder.Services
 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options => options.Cookie.SameSite = SameSiteMode.Strict)
 .AddOpenIdConnect("oidc", options =>
 {
-    options.Authority = builder.Configuration.GetValue<string>("Url_authority");
+    options.Authority = builder.Configuration.GetValue<string>("UrlAuthority");
     options.ClientId = "web";
     options.ClientSecret = "secret";
     options.ResponseType = "code";
@@ -47,11 +47,12 @@ app.UseBff();
 app.UseAuthorization();
 app.MapBffManagementEndpoints();
 
-app.MapRemoteBffApiEndpoint("/api/persons", builder.Configuration.GetValue<string>("ApiUrl_persons"))
+var apiUrl = builder.Configuration.GetValue<string>("ApiUrl");
+app.MapRemoteBffApiEndpoint("/api/persons", $"{apiUrl}/api/persons")
             .RequireAccessToken(TokenType.User);
-app.MapRemoteBffApiEndpoint("/api/rooms", builder.Configuration.GetValue<string>("ApiUrl_rooms"))
+app.MapRemoteBffApiEndpoint("/api/rooms", $"{apiUrl}/api/rooms")
             .RequireAccessToken(TokenType.User);
-app.MapRemoteBffApiEndpoint("/api/bookings", builder.Configuration.GetValue<string>("ApiUrl_bookings"))
+app.MapRemoteBffApiEndpoint("/api/bookings", $"{apiUrl}/api/bookings")
             .RequireAccessToken(TokenType.User);
 app.MapFallbackToFile("index.html");
 
